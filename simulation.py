@@ -28,6 +28,7 @@ import random
 import numpy as np
 import pandas as pd
 from numpy.random import default_rng
+import torch
 
 # NumPy 新版随机数生成器（PCG64 算法，比旧版 MT19937 更快）
 rng = default_rng()
@@ -252,7 +253,7 @@ class Simulation:
         random.seed(seed)
         np.random.seed(seed)
         # TODO: 这行是 TensorFlow 遗留，PyTorch 项目中应改为 torch.manual_seed(seed)
-        tf.random.set_random_seed(seed)
+        torch.manual_seed(seed)
 
     def reset(self):
         """
